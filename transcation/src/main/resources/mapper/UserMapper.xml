@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：必须与对应的接口全类名一致  UserMapper.java
+    id ：必须与对应接口的某个对应的方法名一致即必须要和UserMapper.java接口中的方法同名。
+ -->
+<mapper namespace="cn.onloc.dao.UserDao">
+
+    <resultMap id="user" type="cn.onloc.bean.User">
+        <result column="id" property="id"></result>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="sex" property="sex"></result>
+        <result column="age" property="age"></result>
+    </resultMap>
+
+    <select id="getUserById" resultMap="user" parameterType="Integer">
+        select * from user_t where id = #{id}
+    </select>
+
+    <update id="updateUserById" parameterType="Integer">
+        update user_t set age = '20' where id = #{id}
+    </update>
+
+</mapper>

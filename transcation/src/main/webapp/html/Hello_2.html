@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="div">
+        <input type="text" v-model="content">
+        <button v-on:click="handerClick">提交</button>
+        <ul>
+            <li v-for="(item, index) in list" v-on:click="handlerDelete(index)">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#div',
+            data: {
+                list: [],
+                content: ''
+            },
+            methods: {
+                handerClick: function() {
+                    this.list.push(this.content);
+                    this.content = '';
+                },
+                handlerDelete: function(index) {
+                    this.list.splice(index, 1);
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

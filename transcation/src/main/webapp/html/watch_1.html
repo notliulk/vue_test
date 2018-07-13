@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div class="div">
+        <input type="text" v-model="content" @click="changeSpan">
+
+    </div>
+
+    <script>
+
+        var vm =  new Vue({
+            el: 'div',
+            data: {
+                content: 'a'
+            },
+            methods: {
+                changeSpan: function() {
+                    this.content = 'b'
+                }
+            }
+        });
+
+        vm.$watch('content', function() {
+           vm.content = 'c';
+
+        });
+
+    </script>
+
+</body>
+</html>

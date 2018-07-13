@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>components</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <input type="text" v-model="content">
+        <button v-on:click="handerClick">提交</button>
+        <ul>
+            <my-list v-for="(item, index) in list" v-bind:item="item" v-bind:index="index" @handler-delete="delete1"></my-list>
+        </ul>
+    </div>
+
+    <script>
+
+    var myList = {
+        props: ['item', 'index'],
+        template: "<li @click='handDelete'>{{item}}</li>",
+        methods: {
+            handDelete: function(){
+                this.$emit("handler-delete", this.index);
+             }
+        }
+    }
+
+       var vm = new Vue({
+           el: '#div',
+           data: {
+               list: [],
+               content: ''
+           },
+           components:{
+               myList: myList
+           },
+           methods: {
+               handerClick: function() {
+                   this.list.push(this.content);
+                   this.content = '';
+               },
+               delete1: function(index) {
+                   console.log(222);
+                   this.list.splice(index, 1);
+               }
+           }
+       });
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lifecycle</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div class="div">
+
+        <input type="text" v-model="content" readonly style="background-color: #eee">
+
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '.div',
+            data: {
+                content: 'i am a ducking'
+            },
+            beforeCreate: function () {
+                console.log(" i am deforeCreate ---我是在第一下初始化vue的时候需要执行的函数，不用吧我放在methods里面")
+            },
+            created: function () {
+                console.log("i am created -- 我是在第一下初始化以后执行的，和beforeCreate是相对的")
+            },
+            beforeMount: function () {
+                console.log(" i am beforeMount -- 我是在给组件绑定数据之前执行的函数")
+                console.log(this.$el);
+            },
+            mounted: function () {
+                console.log(this.$el);
+            },
+            beforeUpdate: function () {
+                console.log("我是在改变data里面的属性值时执行的")
+            },
+            updated: function () {
+                console.log("我是在改变data里的属性值后执行的")
+            },
+            destroyed: function () {
+                console.log(11)
+            }
+
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if or v-show</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="div">
+
+        <input type="text" v-if="ok" v-model="content">
+        <input type="text" v-else v-model="content1" >
+
+        <input type="text" v-show="ok" v-model="content" @click="showSomeThing">
+
+        <template>
+
+
+        </template>
+
+
+    </div>
+    <script>
+
+        var vm = new Vue({
+            el: '#div',
+            data: {
+                content: 'hello word',
+                content1: 'aaaaa',
+                ok: 1
+            },
+            methods: {
+                showSomeThing: function() {
+                    console.log(this.content);
+                }
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+    <div>hello</div>
+
+    <script>
+
+
+
+
+        // max(1, 2);
+        // var fun = function(a, b) {
+        //     console.log(a + b);
+        //     return a + b;
+        // }
+        //
+        // function max(a, b) {
+        //     console.log(a + b);
+        //     return a + b;
+        // }
+        //
+        // console.log(fun);
+        // console.log(max);
+
+        // var aa = (function(a, b) {
+        //     return a + b;
+        // })(1, 2);
+        // console.log(aa)
+
+        //js的所有都可以放在json中，用json的方式创建的对象，只适用于该对象只创建一次的时候使用
+        // var lang = {};
+        // lang.Math = {
+        //     abs: function(a) {
+        //         return a>0?a:-a;
+        //     },
+        //     max: function (a,b) {
+        //         return a>b?a:b;
+        //     }
+        // }
+        //
+        // lang.string = {
+        //     length: function(str) {
+        //         return str.length;
+        //     },
+        //     toLowCase: function(str) {
+        //         return str.toLowerCase();
+        //     }
+        // }
+        // console.log(lang.Math.max(1,2));
+
+
+        // //通过工厂创建js对象，prototype
+        // function createPerson(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        //     createPerson.prototype.show_name = function() {
+        //         console.log(this.name);
+        //     };
+        //     createPerson.prototype.show_age = function() {
+        //         console.log(this.age);
+        //     };
+        // }
+        // var person_a = createPerson("tom",21);
+        // var person_b = createPerson("jack",22);
+        // console.log(person_b == person_a);//true
+
+
+        //通过工厂创建js对象
+        // function createPerson() {
+        //     var person = new Object();
+        //     person.name = "zhangsan";
+        //     person.age = 22;
+        //     person.show_name = function() {
+        //         console.log(this.name);
+        //     };
+        //     person.show_age = function() {
+        //         console.log(this.age);
+        //     };
+        //     return person;
+        // }
+        // var person_a = createPerson();
+        // person_a.show_name();
+        // person_a.show_age();
+        // var person_b = createPerson();
+        // console.log(person_a == person_b);
+
+
+
+        //js自定义对象
+        // var person = new Object();
+        // person.name = "zhangsan";
+        // person.age = 22;
+        // person.show_name = function() {
+        //     console.log(this.name);
+        // };
+        // person.show_age = function() {
+        //     console.log(this.age);
+        // };
+        // person.show_age();
+        // person.show_name();
+
+
+        //任何的全局变量或者全局方法，都相当于是window的一个属性
+        // function show() {
+        //     console.log(11);
+        // }
+        // // show();
+        // window.show();
+
+        //任意内置对象的创建，其实质也是new的一个对象，只是我们自己没有去通过new创建
+        // var arr = [1,2,3,4,5];
+        // var arr1 = new Array(1,2,3,4,5);
+        // arr.sum = function() {
+        //     var su = 0;
+        //     for(index in arr) {
+        //         su = su + arr[index];
+        //     }
+        //     console.log(su)
+        // }
+        // arr.sum();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你问我答</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div class="div">
+
+        <span >question：</span>
+        <input type="text" v-model="question" @click="myQuestion">
+        <span>{{changeAnswer}}</span>
+
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '.div',
+            data: {
+                question: '',
+                answer: 'i am  answer'
+            },
+            methods: {
+                myQuestion: function(){
+                    console.log(111);
+                }
+            },
+            computed: {
+                changeAnswer: {
+                   get: function () {
+                       var a = this.answer = this.answer + " " + this.question;
+                       this.answer = 'i am answer';
+                       return a;
+                   },
+                    set: function () {
+                        console.log(222 )
+                    }
+                }
+            }
+
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class and style</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="div">
+        <input type="text" :value="content_1" v-bind:class="{readonly : content_1}">
+        <input type="text" :value="content_2">
+        <my-component v-bind:content_3="content_3"></my-component>
+
+    </div>
+    <script>
+
+        var mycomponent = {
+            props: ['content_3'],
+            template: "<input type='text' v-model='content_3'>"
+        }
+
+        var vm = new Vue({
+            el: '#div',
+            components: {
+                myComponent: mycomponent
+            },
+            data: {
+                content_1: '哈哈',
+                content_2: '呵呵',
+                content_3: '嘻嘻'
+            }
+
+        });
+
+    </script>
+
+
+</body>
+</html>

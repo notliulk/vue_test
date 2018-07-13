@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="div">
+
+        <input type="text" value=" hahaha">
+        <button @click="doSomeThindg($event)">{{content}}</button>
+
+    </div>
+    <script>
+
+        var vm = new Vue({
+            el: '#div',
+            data: {
+                content: '我是按钮'
+            },
+            methods: {
+                doSomeThindg: function (event) {
+                    if(event) event.preventDefault()
+                    console.log(event);
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
